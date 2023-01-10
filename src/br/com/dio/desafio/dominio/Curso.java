@@ -1,7 +1,5 @@
 package br.com.dio.desafio.dominio;
 
-import java.util.Objects;
-
 public class Curso extends Conteudo {
 
     private int cargaHoraria;
@@ -10,6 +8,7 @@ public class Curso extends Conteudo {
         super(titulo, descricao);
         this.cargaHoraria = cargaHoraria;
     }
+
     @Override
     public double calcularXP() {
         return Conteudo.XP_PADRAO * cargaHoraria;
@@ -21,11 +20,7 @@ public class Curso extends Conteudo {
 
     @Override
     public String toString() {
-        return "Curso{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", cargaHoraria=" + cargaHoraria +
-                '}';
+        return String.format("Curso { titulo = %s, descrição = %s, cargaHorária = %d }", titulo, descricao, cargaHoraria);
     }
 
     @Override
@@ -34,6 +29,6 @@ public class Curso extends Conteudo {
         if (!(o instanceof Curso)) return false;
         Curso curso = (Curso) o;
         return titulo.equals(curso.titulo) &&
-                descricao.equals(curso.descricao) && cargaHoraria == cargaHoraria;
+                descricao.equals(curso.descricao) && cargaHoraria == curso.cargaHoraria;
     }
 }
